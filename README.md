@@ -25,4 +25,4 @@ Siga os passos abaixo para rodar a aplicação na sua máquina:
 
 1. **Clonar o repositório:**
    ```bash
-   git clone [https://github.com/seu-usuario/seu-repositorio.git](https://github.com/seu-usuario/seu-repositorio.git)
+   git clone [https://github.com/Angelo-ds/Jogo_da_velha_reformulado.git)]
