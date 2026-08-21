@@ -59,20 +59,38 @@ function Board({ xIsNext, squares, onPlay }) {
 
 // componente que trata os jogadores
 export default function Game() {
+
+  //history é um array que guarda cada jogada que ja foi feita, e no começo do jogo ele começa como "null" pois ninguem jogou ainda.
   const [history, setHistory] = useState([Array(9).fill(null)]);
+
+//guarda o número que começa o jogo, sendo ele o "0"
   const [currentMove, setCurrentMove] = useState(0);
+
+  //verifica quem é o proximo jogador na partida com um calculo de resto, onde se for impar, o proximo jogador é "O", e se for par, será "X".
   const xIsNext = currentMove % 2 === 0;
+
+  //captura o tabuleiro do turno no momento, para poder exibir na tela
   const currentSquares = history[currentMove];
 
+
+
+  //quando alquem clica em um quadrado essa função é ativada
   function handlePlay(nextSquares) {
+
+    //corta o histórico de jogadas passadas se o jogador "Volta no tempo" e só mantem o inicio do jogo ate o momento que ele decidiu voltar.
     const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];
+
+    //Esses atualizam o estado do react, eles salvam o novo histórico e move o marcador do turno para a última jogada feita.
     setHistory(nextHistory);
     setCurrentMove(nextHistory.length - 1);
+
   }
 
+  //
   function jumpTo(nextMove) {
     setCurrentMove(nextMove);
   }
+
 
   const moves = history.map((squares, move) => {
     let description;
