@@ -1,14 +1,5 @@
 import Game from "../Game/game";
 
-// Componente que representa cada casa individual do tabuleiro
-function Quadrado({ valor, aoClicarQuadrado }) {
-  return (
-    <button className="square" onClick={aoClicarQuadrado}>
-      {valor}
-    </button>
-  );
-}
-
 function Board({ proximo, quadrados, aoJogar }) {
 
   // Controla a lógica quando o jogador clica em uma casa do tabuleiro
