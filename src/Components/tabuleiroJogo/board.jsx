@@ -1,12 +1,17 @@
 import Quadrado from "../Quadrados/Square.jsx";
 import calcularVencedor from '../Vencedor/winner.jsx';
+import styles from './board.module.css'; 
 
 export default function Board({ proximo, quadrados = Array(9).fill(null), aoJogar }) {
 
-  // Obtém o resultado da validação
+  // A função calcularVencedor retorna um objeto com 'vencedor' e 'linhaVencedora'
   const resultado = calcularVencedor(quadrados);
+  console.log("Linha Vencedora:", resultado?.linhaGanhadora);
+
+  // a vairavel "resultado" captura os valord do vencedor (se é X ou O) e a linha vencedora.
+  // já o "?." impede que o valor coletado seja nulo, ou seja, se o jogo ainda estiver rodando, esse código é pulado
   const vencedor = resultado?.vencedor;
-  const linhaVencedora = resultado?.linhaVencedora || [];
+  const linhaVencedora = resultado?.linhaGanhadora || [];
 
   // Controla a lógica quando o jogador clica em uma casa do tabuleiro
   function handleClick(i) {
@@ -18,27 +23,33 @@ export default function Board({ proximo, quadrados = Array(9).fill(null), aoJoga
     // Cria uma cópia do array de quadrados para manter a imutabilidade do estado
     const proximoQuadrado = quadrados.slice();
     
-    // Define se a jogada atual será 'X' ou 'O'
-    proximoQuadrado[i] = proximo ? 'X' : 'O';
+    // Define se a jogada atual será 'X' ou 'O' com base na vez do jogador
+    if (proximo) {
+      proximoQuadrado[i] = 'X';
+    } else {
+      proximoQuadrado[i] = 'O';
+    }
     
     // Envia o novo estado do tabuleiro para o componente pai atualizar o jogo
     aoJogar(proximoQuadrado);
   }
 
-  // Define o texto de status
+  // Verifica o status atual do jogo (se há um vencedor ou quem é o próximo a jogar)
   let status;
+  
   if (vencedor) {
     status = 'Vencedor: ' + vencedor;
   } else {
     status = 'Próximo jogador: ' + (proximo ? 'X' : 'O');
   }
 
+  // Renderiza o painel de status e as 3 linhas do tabuleiro, ligando cada quadrado ao seu índice
   return (
     <>
-      <div className="status">{status}</div>
+      <div className={styles.status}>{status}</div>
       
       {/* Primeira linha do tabuleiro */}
-      <div className="board-row">
+      <div className={styles['board-row']}>
         <Quadrado 
           valor={quadrados[0]} 
           aoClicarQuadrado={() => handleClick(0)} 
@@ -57,7 +68,7 @@ export default function Board({ proximo, quadrados = Array(9).fill(null), aoJoga
       </div>
       
       {/* Segunda linha do tabuleiro */}
-      <div className="board-row">
+      <div className={styles['board-row']}>
         <Quadrado 
           valor={quadrados[3]} 
           aoClicarQuadrado={() => handleClick(3)} 
@@ -76,7 +87,7 @@ export default function Board({ proximo, quadrados = Array(9).fill(null), aoJoga
       </div>
       
       {/* Terceira linha do tabuleiro */}
-      <div className="board-row">
+      <div className={styles['board-row']}>
         <Quadrado 
           valor={quadrados[6]} 
           aoClicarQuadrado={() => handleClick(6)} 
