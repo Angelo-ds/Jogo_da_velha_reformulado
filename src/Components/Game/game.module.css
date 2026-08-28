@@ -1,0 +1,25 @@
+/* Container principal do jogo */
+.game {
+  padding: 20px;
+  background-color: #ffffff;
+  color: #000000;
+  min-height: 100vh;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Regras aplicadas no Tema Escuro */
+.game.dark {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+.game.dark button {
+  background-color: #333333;
+  color: #ffffff;
+  border: 1px solid #555555;
+  cursor: pointer;
+}
+
+.game.dark button:hover {
+  background-color: #444444;
+}
