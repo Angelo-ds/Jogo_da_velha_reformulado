@@ -28,12 +28,15 @@ export default function calcularVencedor(quadrado) {
       // ja as outra é de comparação, para verificar se todas as posições são do mesmo jogador, "X" ou "O"
 
 
-      return quadrado[a];
+      return{ 
+        vencedor:  quadrado[a],
+        linhaGanhadora: lines[i]
+      };
       //esse retorna quem ganhou
       // dá pra colocar algo aqui como uma section com efeitos para o jogador
 
 
-
+      
     }
   }
 
