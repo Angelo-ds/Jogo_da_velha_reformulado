@@ -1,6 +1,8 @@
 // componente para fazer o jogador ganhar
-function calculateWinner(quadrado) {
-
+export default function calcularVencedor(quadrado) {
+  if (!quadrado){
+    return null
+  }
   //define as linhas que se completas pelo mesmo jogador, o jogo acaba.
   const lines = [
     [0, 1, 2], // Linha horizontal do topo
@@ -21,7 +23,7 @@ function calculateWinner(quadrado) {
     const [a, b, c] = lines[i];
 
 
-    if (quadrado[a] && quadrado[a] === quadrado[b] && quadrado[a] === quadrado[c]) {
+    if (quadrado && quadrado[a] && quadrado[a] === quadrado[b] && quadrado[a] === quadrado[c]) {
       //a repetição do squares[a] é para verificar se a primeira não é "null"
       // ja as outra é de comparação, para verificar se todas as posições são do mesmo jogador, "X" ou "O"
 

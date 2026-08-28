@@ -1,11 +1,12 @@
-import Game from "../Game/game";
+import Quadrado from "../Quadrados/Square.jsx";
+import calcularVencedor from '../Vencedor/winner.jsx'
 
-function Board({ proximo, quadrados, aoJogar }) {
+export default function Board({ proximo, quadrados, aoJogar }) {
 
   // Controla a lógica quando o jogador clica em uma casa do tabuleiro
   function handleClick(i) {
     // Impede a jogada se o jogo já tiver um vencedor ou se o quadrado já estiver preenchido
-    if (calculateWinner(quadrados) || quadrados[i]) {
+    if (calcularVencedor(quadrados) || quadrados[i]) {
       return;
     }
     
@@ -24,11 +25,11 @@ function Board({ proximo, quadrados, aoJogar }) {
   }
 
   // Verifica o status atual do jogo (se há um vencedor ou quem é o próximo a jogar)
-  const winner = calculateWinner(quadrados);
+  const vencedor = calcularVencedor(quadrados);
   let status;
   
-  if (winner) {
-    status = 'Vencedor: ' + winner;
+  if (vencedor) {
+    status = 'Vencedor: ' + vencedor;
   } else {
     status = 'Proximo jogador: ' + (proximo ? 'X' : 'O');
   }
