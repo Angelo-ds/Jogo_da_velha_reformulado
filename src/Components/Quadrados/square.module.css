@@ -1,12 +1,12 @@
 .square {
   background: var(--fundo-claro);
   border: 1px solid var(--borda-quadrado);
-  font-size: 24px;
+  font-size: 25px;
   font-weight: bold;
-  line-height: 34px;
-  height: 34px;
+  line-height: 35px;
+  height: 35px;
   padding: 0;
-  width: 34px;
+  width: 35px;
   cursor: pointer;
 }
 
