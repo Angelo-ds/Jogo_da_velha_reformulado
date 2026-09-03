@@ -1,5 +1,5 @@
 import Game from './Components/Game/game.jsx'
-import 'coresGlobais.css'
+import './coresGlobais.css'
 
 
 function App() {

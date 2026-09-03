@@ -52,19 +52,19 @@ export default function Game() {
     <div className={`${style.game} ${temaEscuro ? style.dark : ''}`}>
       
       {/* Botão de alternar o tema */}
-      <div className={style.controls} style={{ marginBottom: '15px' }}>
+      <div style={{ marginBottom: '15px' }}>
         <button onClick={() => setTemaEscuro(!temaEscuro)}>
           {temaEscuro ? '☀️ Modo Claro' : '🌙 Modo Escuro'}
         </button>
       </div>
 
       {/* Seção principal contendo o tabuleiro e suas regras atuais */}
-      <div className={style['game-board']}>
+      <div>
         <Board proximo={proximo} quadrados={quadradosPreenchidos} aoJogar={handlePlay} />
       </div>
       
       {/* Seção lateral contendo as informações e o histórico de jogadas */}
-      <div className={style['game-info']}>
+      <div>
         <ol>{movimento}</ol>
       </div>
     </div>

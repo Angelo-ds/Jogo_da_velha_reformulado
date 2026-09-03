@@ -1,6 +1,6 @@
 import Quadrado from "../Quadrados/Square.jsx";
 import calcularVencedor from '../Vencedor/winner.jsx';
-import styles from './board.module.css'; 
+
 
 export default function Board({ proximo, quadrados = Array(9).fill(null), aoJogar }) {
 
@@ -46,10 +46,10 @@ export default function Board({ proximo, quadrados = Array(9).fill(null), aoJoga
   // Renderiza o painel de status e as 3 linhas do tabuleiro, ligando cada quadrado ao seu índice
   return (
     <>
-      <div className={styles.status}>{status}</div>
+      <div>{status}</div>
       
       {/* Primeira linha do tabuleiro */}
-      <div className={styles['board-row']}>
+      <div>
         <Quadrado 
           valor={quadrados[0]} 
           aoClicarQuadrado={() => handleClick(0)} 
@@ -68,7 +68,7 @@ export default function Board({ proximo, quadrados = Array(9).fill(null), aoJoga
       </div>
       
       {/* Segunda linha do tabuleiro */}
-      <div className={styles['board-row']}>
+      <div>
         <Quadrado 
           valor={quadrados[3]} 
           aoClicarQuadrado={() => handleClick(3)} 
@@ -87,7 +87,7 @@ export default function Board({ proximo, quadrados = Array(9).fill(null), aoJoga
       </div>
       
       {/* Terceira linha do tabuleiro */}
-      <div className={styles['board-row']}>
+      <div>
         <Quadrado 
           valor={quadrados[6]} 
           aoClicarQuadrado={() => handleClick(6)} 
