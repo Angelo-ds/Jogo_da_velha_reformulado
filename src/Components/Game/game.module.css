@@ -1,3 +1,5 @@
+@import "coresGlobais.module.css";
+
 /* Container principal do jogo */
 .game {
   padding: 20px;
