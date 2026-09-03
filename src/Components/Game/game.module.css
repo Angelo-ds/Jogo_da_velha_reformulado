@@ -1,27 +1,25 @@
-@import "coresGlobais.module.css";
-
 /* Container principal do jogo */
 .game {
   padding: 20px;
-  background-color: #ffffff;
-  color: #000000;
+  background-color: var(--fundo-claro);
+  color: var(--cor-principal);
   min-height: 100vh;
   transition: background-color 0.3s, color 0.3s;
 }
 
 /* Regras aplicadas no Tema Escuro */
 .game.dark {
-  background-color: #1a1a1a;
-  color: #ffffff;
+  background-color: var(--fundo-escuro);
+  color: var(--cor-modo-escuro);
 }
 
 .game.dark button {
-  background-color: #333333;
-  color: #ffffff;
-  border: 1px solid #555555;
+  background-color: var(--cor-botao);
+  color: var(--cor-modo-escuro);
+  border: 1px solid var(--borda-botao);
   cursor: pointer;
 }
 
 .game.dark button:hover {
-  background-color: #444444;
+  background-color: var(--hover-botao);
 }

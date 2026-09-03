@@ -1,6 +1,6 @@
 .square {
-  background: #fff;
-  border: 1px solid #999;
+  background: var(--fundo-claro);
+  border: 1px solid var(--borda-quadrado);
   font-size: 24px;
   font-weight: bold;
   line-height: 34px;
@@ -12,11 +12,11 @@
 
 
 .vencedor {
-  background-color: #2ecc71 !important;  /*o important coloca essa tag como prioridade, ou seja, sobrepoe todos os outrs css*/
-  color: #ffffff;
+  background-color: var(--cor-vencedor) !important;  /*o important coloca essa tag como prioridade, ou seja, sobrepoe todos os outrs css*/
+  color: var(--cor-quadrado);
 }
 
 .vencedor_escuro {
-background-color: #009B3A;
-color: #ffffff;
+background-color: var(--cor-vencedor-escuro);
+color: var(--cor-quadrado);
 }

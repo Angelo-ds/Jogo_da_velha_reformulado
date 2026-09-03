@@ -3,7 +3,14 @@
     --fundo-escuro: #1a1a1a;
     --cor-principal: #000000;
     --cor-modo-escuro: #ffff;
+    --cor-botao: #333333;
     --borda-botao: #555555;
+    --hover-botao: #444444;
     --cor-botao-escuro: #333333;
+    --borda-quadrado: #999;
+    --cor-vencedor: #2ecc71;
+    --cor-vencedor-escuro: #009B3A;
+    --cor-quadrado: #ffff;
+
 
 }
