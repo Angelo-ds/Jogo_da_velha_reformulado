@@ -14,7 +14,6 @@ O objetivo principal é refatorar a estrutura do jogo original, aplicando concei
 - **JavaScript (ES6+)** (Lógica e manipulação de estado)
 - **React** (Biblioteca para construção da interface de usuário)
 - **Vite** (Ferramenta de build ultra-rápida baseada em ES Modules)
-- **Bootstrap** (Sistema de Grid e layout responsivo)
 - **CSS Modules + BEM** (Estilização isolada com nomenclatura padronizada)
 
 ---
