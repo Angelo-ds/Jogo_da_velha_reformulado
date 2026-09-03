@@ -1,6 +1,6 @@
 import Quadrado from "../Quadrados/Square.jsx";
 import calcularVencedor from '../Vencedor/winner.jsx';
-
+import styles from '/board.module.css'
 
 export default function Board({ proximo, quadrados = Array(9).fill(null), aoJogar }) {
 
