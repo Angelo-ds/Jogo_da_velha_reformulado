@@ -1,52 +1,21 @@
-/* Container principal com fundo escuro */
-.board-container {
+.boardContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background-color: #0d0d0d;
-  padding: 24px;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
-  width: fit-content;
-  margin: 20px auto;
-  font-family: 'Arial', sans-serif;
+  gap: 15px;
 }
 
-/* Painel do status do jogo */
 .status {
-  color: #ff2a2a;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: bold;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  text-shadow: 0 0 8px rgba(255, 42, 42, 0.6);
 }
 
-/* Linhas do tabuleiro */
-.board-row {
-  display: flex;
-}
-
-/* Estilização para o componente Quadrado (Square) */
-.square {
-  width: 80px;
-  height: 80px;
-  background-color: #1a1a1a;
-  border: 2px solid #ff0000;
-  color: #ffffff;
-  font-size: 2.5rem;
-  font-weight: bold;
-  cursor: pointer;
-  margin: 3px;
-  border-radius: 6px;
-  transition: all 0.2s ease-in-out;
-}
-
-/* Efeito ao passar o mouse por cima */
-.square:hover {
-  background-color: #2b0000;
-  border-color: #ff3333;
-  box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+/* Grid com bordas vermelhas simples */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  background-color: var(--borda-red);
+  padding: 6px;
+  border-radius: 8px;
 }

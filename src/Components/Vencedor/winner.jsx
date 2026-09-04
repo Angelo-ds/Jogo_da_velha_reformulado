@@ -1,8 +1,6 @@
 // componente para fazer o jogador ganhar
 export default function calcularVencedor(quadrado) {
-  if (!quadrado){
-    return null
-  }
+
   //define as linhas que se completas pelo mesmo jogador, o jogo acaba.
   const lines = [
     [0, 1, 2], // Linha horizontal do topo

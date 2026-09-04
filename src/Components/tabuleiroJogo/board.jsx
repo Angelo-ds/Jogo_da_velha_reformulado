@@ -1,15 +1,14 @@
 import Quadrado from "../Quadrados/Square.jsx";
 import calcularVencedor from '../Vencedor/winner.jsx';
-import styles from '/board.module.css'
+import styles from './board.module.css';
 
 export default function Board({ proximo, quadrados = Array(9).fill(null), aoJogar }) {
 
   // A função calcularVencedor retorna um objeto com 'vencedor' e 'linhaVencedora'
   const resultado = calcularVencedor(quadrados);
-  console.log("Linha Vencedora:", resultado?.linhaGanhadora);
 
-  // a vairavel "resultado" captura os valord do vencedor (se é X ou O) e a linha vencedora.
-  // já o "?." impede que o valor coletado seja nulo, ou seja, se o jogo ainda estiver rodando, esse código é pulado
+  // A variável "resultado" captura os valores do vencedor (se é X ou O) e a linha vencedora.
+  // Já o "?." impede que o valor coletado seja nulo
   const vencedor = resultado?.vencedor;
   const linhaVencedora = resultado?.linhaGanhadora || [];
 
@@ -43,67 +42,22 @@ export default function Board({ proximo, quadrados = Array(9).fill(null), aoJoga
     status = 'Próximo jogador: ' + (proximo ? 'X' : 'O');
   }
 
-  // Renderiza o painel de status e as 3 linhas do tabuleiro, ligando cada quadrado ao seu índice
+  // Renderiza o painel de status e o tabuleiro 3x3 usando .map() e Grid
   return (
-    <>
-      <div>{status}</div>
+    <div className={styles.boardContainer}>
+      <div className={styles.status}>{status}</div>
       
-      {/* Primeira linha do tabuleiro */}
-      <div>
-        <Quadrado 
-          valor={quadrados[0]} 
-          aoClicarQuadrado={() => handleClick(0)} 
-          isVencedor={linhaVencedora.includes(0)} 
-        />
-        <Quadrado 
-          valor={quadrados[1]} 
-          aoClicarQuadrado={() => handleClick(1)} 
-          isVencedor={linhaVencedora.includes(1)} 
-        />
-        <Quadrado 
-          valor={quadrados[2]} 
-          aoClicarQuadrado={() => handleClick(2)} 
-          isVencedor={linhaVencedora.includes(2)} 
-        />
+      {/* Container do tabuleiro estilizado com CSS Grid */}
+      <div className={styles.grid}>
+        {quadrados.map((valor, indice) => (
+          <Quadrado 
+            key={indice}
+            valor={valor} 
+            aoClicarQuadrado={() => handleClick(indice)} 
+            isVencedor={linhaVencedora.includes(indice)} 
+          />
+        ))}
       </div>
-      
-      {/* Segunda linha do tabuleiro */}
-      <div>
-        <Quadrado 
-          valor={quadrados[3]} 
-          aoClicarQuadrado={() => handleClick(3)} 
-          isVencedor={linhaVencedora.includes(3)} 
-        />
-        <Quadrado 
-          valor={quadrados[4]} 
-          aoClicarQuadrado={() => handleClick(4)} 
-          isVencedor={linhaVencedora.includes(4)} 
-        />
-        <Quadrado 
-          valor={quadrados[5]} 
-          aoClicarQuadrado={() => handleClick(5)} 
-          isVencedor={linhaVencedora.includes(5)} 
-        />
-      </div>
-      
-      {/* Terceira linha do tabuleiro */}
-      <div>
-        <Quadrado 
-          valor={quadrados[6]} 
-          aoClicarQuadrado={() => handleClick(6)} 
-          isVencedor={linhaVencedora.includes(6)} 
-        />
-        <Quadrado 
-          valor={quadrados[7]} 
-          aoClicarQuadrado={() => handleClick(7)} 
-          isVencedor={linhaVencedora.includes(7)} 
-        />
-        <Quadrado 
-          valor={quadrados[8]} 
-          aoClicarQuadrado={() => handleClick(8)} 
-          isVencedor={linhaVencedora.includes(8)} 
-        />
-      </div>
-    </>
+    </div>
   );
 }

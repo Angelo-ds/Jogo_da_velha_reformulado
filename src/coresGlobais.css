@@ -1,16 +1,25 @@
-:root{
-    --fundo-claro: #ffff;
-    --fundo-escuro: #1a1a1a;
-    --cor-principal: #000000;
-    --cor-modo-escuro: #ffff;
-    --cor-botao: #333333;
-    --borda-botao: #555555;
-    --hover-botao: #444444;
-    --cor-botao-escuro: #333333;
-    --borda-quadrado: #999;
-    --cor-vencedor: #2ecc71;
-    --cor-vencedor-escuro: #009B3A;
-    --cor-quadrado: #ffff;
+:root {
+  /* Modo Claro */
+  --fundo: #f4f4f4;
+  --texto: #000000;
+  --borda-red: #e63946;
+  --quadrado-fundo: #ffffff;
+  --vencedor: #2ecc71;
+}
 
+[data-theme='dark'] { /*o "data-theme" faz com que esse css possa ser aplicado em diversos componentes, se fosse um game.dark iria se aplicado só no game.*/
+  /* Modo Escuro */
+  --fundo: #0d0d0d;
+  --texto: #ffffff;
+  --borda-red: #e63946;
+  --quadrado-fundo: #1a1a1a;
+  --vencedor: #27ae60;
+}
 
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: var(--fundo);
+  color: var(--texto);
 }

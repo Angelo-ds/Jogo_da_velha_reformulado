@@ -1,25 +1,50 @@
-/* Container principal do jogo */
+/* Container que ocupa a tela toda e alinha o botão no topo e o conteúdo no meio */
 .game {
-  padding: 20px;
-  background-color: var(--fundo-claro);
-  color: var(--cor-principal);
   min-height: 100vh;
-  transition: background-color 0.3s, color 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--fundo);
+  color: var(--texto);
+  padding: 20px;
+  box-sizing: border-box;
 }
 
-/* Regras aplicadas no Tema Escuro */
-.game.dark {
-  background-color: var(--fundo-escuro);
-  color: var(--cor-modo-escuro);
+/* Novo container flex para colocar o Tabuleiro e o Histórico lado a lado */
+.gameContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 30px; /* Espaço entre o tabuleiro e a lista de histórico */
+  margin-top: 15px;
 }
 
-.game.dark button {
-  background-color: var(--cor-botao);
-  color: var(--cor-modo-escuro);
-  border: 1px solid var(--borda-botao);
+/* Estilo padrão para todos os botões do jogo */
+.game button {
+  background-color: var(--quadrado-fundo);
+  color: var(--texto);
+  border: 2px solid var(--borda-red);
+  padding: 8px 16px;
+  border-radius: 6px;
   cursor: pointer;
+  font-weight: bold;
 }
 
-.game.dark button:hover {
-  background-color: var(--hover-botao);
+.game button:hover {
+  background-color: var(--borda-red);
+  color: #ffffff;
+}
+
+/* Estilo da lista de histórico ajustada para a lateral */
+.game ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 300px;
+  overflow-y: auto; /* Adiciona rolagem se a lista ficar muito grande */
 }

@@ -48,24 +48,27 @@ export default function Game() {
   });
 
   return (
-    /* CORREÇÃO: Usando a variável 'style' para aplicar as classes do CSS Module */
-    <div className={`${style.game} ${temaEscuro ? style.dark : ''}`}>
+    /* Aplica o data-theme dinamicamente para sincronizar com as variáveis globais do CSS */
+    <div className={style.game} data-theme={temaEscuro ? 'dark' : 'light'}>
       
       {/* Botão de alternar o tema */}
-      <div style={{ marginBottom: '15px' }}>
+      <div>
         <button onClick={() => setTemaEscuro(!temaEscuro)}>
           {temaEscuro ? '☀️ Modo Claro' : '🌙 Modo Escuro'}
         </button>
       </div>
 
-      {/* Seção principal contendo o tabuleiro e suas regras atuais */}
-      <div>
-        <Board proximo={proximo} quadrados={quadradosPreenchidos} aoJogar={handlePlay} />
-      </div>
-      
-      {/* Seção lateral contendo as informações e o histórico de jogadas */}
-      <div>
-        <ol>{movimento}</ol>
+      {/* Container principal organizando Tabuleiro e Histórico LADO A LADO */}
+      <div className={style.gameContainer}>
+        {/* Seção do tabuleiro */}
+        <div>
+          <Board proximo={proximo} quadrados={quadradosPreenchidos} aoJogar={handlePlay} />
+        </div>
+        
+        {/* Seção lateral do histórico de jogadas */}
+        <div>
+          <ol>{movimento}</ol>
+        </div>
       </div>
     </div>
   );
