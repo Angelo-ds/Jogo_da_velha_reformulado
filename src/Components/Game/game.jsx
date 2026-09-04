@@ -65,7 +65,7 @@ export default function Game() {
 
         {/* Botão de Reset */}
         <button onClick={handleReset}>
-          🔄 Reiniciar Jogo
+          Reiniciar Jogo
         </button>
       </div>
 
