@@ -32,6 +32,12 @@ export default function Game() {
     setJogadaAtual(proximoMovimento);
   }
 
+  // FUNÇÃO DE RESET: Voltar tudo ao estado inicial de antes do jogo começar
+  function handleReset() {
+    setHistorico([Array(9).fill(null)]);
+    setJogadaAtual(0);
+  }
+
   // Transforma o array de histórico em uma lista de elementos HTML
   const movimento = historico.map((quadrado, movimento) => {
     let descricao;
@@ -51,10 +57,15 @@ export default function Game() {
     /* Aplica o data-theme dinamicamente para sincronizar com as variáveis globais do CSS */
     <div className={style.game} data-theme={temaEscuro ? 'dark' : 'light'}>
       
-      {/* Botão de alternar o tema */}
-      <div>
+      {/* Botões de controle no topo (Alternar Tema e Reiniciar) */}
+      <div style={{ display: 'flex', gap: '10px' }}>
         <button onClick={() => setTemaEscuro(!temaEscuro)}>
           {temaEscuro ? '☀️ Modo Claro' : '🌙 Modo Escuro'}
+        </button>
+
+        {/* Botão de Reset */}
+        <button onClick={handleReset}>
+          🔄 Reiniciar Jogo
         </button>
       </div>
 
